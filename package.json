@@ -1,0 +1,32 @@
+{
+  "name": "eshopper",
+  "version": "1.0.0",
+  "description": "Back end imtihoni uchun online magazin loyihasi",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sultonbayevogabek/eshopper.git"
+  },
+  "keywords": [
+    "eshopper",
+    "online",
+    "shop"
+  ],
+  "author": "Og'abek Sultonbayev <sultonbayevogabek@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sultonbayevogabek/eshopper/issues"
+  },
+  "homepage": "https://github.com/sultonbayevogabek/eshopper#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "json-web-token": "^3.2.0",
+    "mongoose": "^5.12.5"
+  }
+}

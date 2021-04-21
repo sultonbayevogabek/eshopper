@@ -1,12 +1,12 @@
 const router = require('express').Router()
 
 router.get('/', async (req, res) => {
-   res.render('account', {
-      title: 'Account | E-Shopper'
+   res.render('checkout', {
+      title: 'Checkout | E-Shopper'
    })
 })
 
 module.exports = {
-   path: '/account',
+   path: '/checkout',
    router
 }

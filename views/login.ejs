@@ -1,40 +1,36 @@
-<%- include('partials/header')%>
-<%- include('partials/page_header')%>
+<%- include('partials/header') %>
+<%- include('partials/page_header') %>
 
-<section id="form"><!--form-->
+<section id="form">
     <div class="container">
         <div class="row">
             <div class="col-sm-4 col-sm-offset-1">
-                <div class="login-form"><!--login form-->
+                <div class="login-form">
                     <h2>Login to your account</h2>
-                    <form action="#">
-                        <input type="text" placeholder="Name"/>
-                        <input type="email" placeholder="Email Address"/>
-                        <span>
-								<input type="checkbox" class="checkbox"> 
-								Keep me signed in
-                        </span>
+                    <form action="/login" method="post">
+                        <input type="email" placeholder="Email Address" name="email" required/>
+                        <input type="password" placeholder="Password" name="password" required minlength="5"/>
                         <button type="submit" class="btn btn-default">Login</button>
                     </form>
-                </div><!--/login form-->
+                </div>
             </div>
             <div class="col-sm-1">
                 <h2 class="or">OR</h2>
             </div>
             <div class="col-sm-4">
-                <div class="signup-form"><!--sign up form-->
+                <div class="signup-form">
                     <h2>New User Signup!</h2>
-                    <form action="#">
-                        <input type="text" placeholder="Name"/>
-                        <input type="email" placeholder="Email Address"/>
-                        <input type="password" placeholder="Password"/>
-                        <button type="submit" class="btn btn-default">Signup</button>
+                    <form action="/signup" method="post">
+                        <input type="text" placeholder="Name" name="name" required minlength="3"/>
+                        <input type="email" placeholder="Email Address" name="email" required/>
+                        <input type="password" placeholder="Password" name="password" required minlength="5"/>
+                        <button type="submit" class="btn btn-default">Sign up</button>
                     </form>
-                </div><!--/sign up form-->
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<%- include('partials/page_footer')%>
-<%- include('partials/footer')%>
+<%- include('partials/page_footer') %>
+<%- include('partials/footer') %>

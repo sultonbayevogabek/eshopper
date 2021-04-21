@@ -7,6 +7,6 @@ router.get('/', async (req, res) => {
 })
 
 module.exports = {
-   path: '/login',
+   path: '/products',
    router
 }

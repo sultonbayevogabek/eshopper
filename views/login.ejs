@@ -1,3 +1,4 @@
+<% var error = error || '' %>
 <%- include('partials/header') %>
 <%- include('partials/page_header') %>
 
@@ -20,6 +21,9 @@
             <div class="col-sm-4">
                 <div class="signup-form">
                     <h2>New User Signup!</h2>
+                    <% if (error?.indexOf('in use') !== -1) { %>
+                        <div class="alert alert-warning text-center"><%= error.substring(6) %></div>
+                    <% } %>
                     <form action="/signup" method="post">
                         <input type="text" placeholder="Name" name="name" required minlength="3"/>
                         <input type="email" placeholder="Email Address" name="email" required/>

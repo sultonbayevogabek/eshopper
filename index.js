@@ -30,7 +30,7 @@ fs.readdir(pathToRoutes, (err, files) => {
 // Connect to mongodb database and run server
 ;(async _ => {
    try {
-      const url = 'mongodb+srv://sultonbayevogabek:PqO0TNwu89PhlBTr@cluster-1.bxd4x.mongodb.net/eshopper'
+      const url = 'mongodb+srv://sultonbayevogabek:Ogabek19991031@cluster-1.bxd4x.mongodb.net/eshopper'
       await mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true})
       const PORT = process.env.PORT
       app.listen(PORT, () => {

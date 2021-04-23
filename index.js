@@ -14,9 +14,14 @@ require('dotenv').config(path.join(__dirname, '.env'))
 app.set('view engine', 'ejs')
 
 // Add middleware functions
+const cookieParser = require('cookie-parser')
+const userMiddleware = require('./middlewares/user-middleware')
+
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.use(express.static(path.join(__dirname, 'public')))
+app.use(cookieParser())
+app.use(userMiddleware)
 
 // Use routes
 const pathToRoutes = path.join(__dirname, 'routes')

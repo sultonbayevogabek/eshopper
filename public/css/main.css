@@ -1417,8 +1417,8 @@ h2.title {
 
 #form {
    display: block;
-   margin-bottom: 185px;
-   margin-top: 185px;
+   margin-bottom: 60px;
+   margin-top: 60px;
    overflow: hidden;
 }
 
@@ -2450,4 +2450,5 @@ textarea {
    padding: 10px;
    border-radius: 0;
    margin-bottom: 12px;
+   text-transform: uppercase;
 }

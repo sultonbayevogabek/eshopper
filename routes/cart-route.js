@@ -2,7 +2,8 @@ const router = require('express').Router()
 
 router.get('/', async (req, res) => {
    res.render('cart', {
-      title: 'Cart | E-Shopper'
+      title: 'Cart | E-Shopper',
+      user: req.user
    })
 })
 

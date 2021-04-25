@@ -32,22 +32,20 @@ const userSchema = new Schema({
       type: String,
       minlength: 5
    },
-   cart: {
-      products: [
-         {
-            count: {
-               type: Number,
-               required: true,
-               default: 1
-            },
-            productId: {
-               type: Schema.Types.ObjectId,
-               ref: 'Products',
-               required: true
-            }
+   cart: [
+      {
+         count: {
+            type: Number,
+            required: true,
+            default: 1
+         },
+         productId: {
+            type: Schema.Types.ObjectId,
+            ref: 'Product',
+            required: true
          }
-      ]
-   }
+      }
+   ]
 }, {collection: 'users'})
 
 module.exports = model('User', userSchema)

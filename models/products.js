@@ -1,11 +1,21 @@
 const {Schema, model} = require('mongoose')
 
-const bannerSchema = new Schema({
-   title: String,
-   subtitle: String,
-   description: String,
-   img: String,
-   img_price: String
-}, {collection: 'banner'})
+const productSchema = new Schema({
+   title: {
+      type: String,
+      required: true,
+      minlength: 3
+   },
+   price: {
+      type: Number,
+      required: true,
+      min: 1
+   },
+   img: {
+      type: String,
+      required: true,
+      minlength: 10
+   }
+}, {collection: 'products'})
 
-module.exports = model('Banner', bannerSchema)
+module.exports = model('Product', productSchema)

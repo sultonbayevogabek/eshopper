@@ -36,7 +36,7 @@ fs.readdir(pathToRoutes, (err, files) => {
 ;(async _ => {
    try {
       const url = 'mongodb+srv://sultonbayevogabek:Ogabek19991031@cluster-1.bxd4x.mongodb.net/eshopper'
-      await mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true})
+      await mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: true})
       const PORT = process.env.PORT
       app.listen(PORT, () => {
          console.log(`Connected to database and running on http://localhost:${PORT}`)

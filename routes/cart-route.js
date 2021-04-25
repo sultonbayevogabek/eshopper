@@ -1,9 +1,11 @@
 const router = require('express').Router()
+const {dontEnterIfNotUser} = require('../middlewares/auth-middleware')
 
-router.get('/', async (req, res) => {
+router.get('/', dontEnterIfNotUser, async (req, res) => {
    res.render('cart', {
       title: 'Cart | E-Shopper',
-      user: req.user
+      user: req.user,
+      path: '/cart'
    })
 })
 

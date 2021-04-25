@@ -4,6 +4,7 @@ const sendEmail = require('../modules/email')
 const User = require('../models/user')
 const {generateToken} = require('../modules/jwt')
 const {generateHash} = require('../modules/bcrypt')
+const { dontEnterIfUser } = require('../middlewares/auth-middleware')
 
 const signUpSchema = Joi.object({
    name: Joi.string()
@@ -24,7 +25,7 @@ const signUpSchema = Joi.object({
 })
 
 
-router.post('/', async (req, res) => {
+router.post('/', dontEnterIfUser, async (req, res) => {
    try {
       const validData = signUpSchema.validate(req.body)
       if (validData.error) {
@@ -32,9 +33,10 @@ router.post('/', async (req, res) => {
       }
       const {name, email, password} = req.body
       const candidate = await User.findOne({email})
-      if (candidate) throw 'This email already in use'
+      if (candidate) throw 'This email already in use. Please login'
 
       const token = generateToken(email)
+
       res.cookie('name', name)
       res.cookie('email', email)
       res.cookie('password', generateHash(password))
@@ -44,7 +46,7 @@ router.post('/', async (req, res) => {
                   <div
                      style="width: 500px; background: white; border-radius: 5px; margin: 0 auto; padding: 15px 15px 50px; font-family: sans-serif;">
                      <header
-                        style="padding-bottom: 15px; border-bottom: 1px solid #ccc; margin-bottom: 50px">
+                        style="padding-bottom: 15px; border-bottom: 1px solid #ccc; margin-bottom: 30px">
                         <img style="width: 100px; height: auto" src="https://demo.themeum.com/html/eshopper/images/home/logo.png"
                              alt="">
                         <h3 style="margin: 0; float: right; line-height: 32px; font-size: 22px; font-weight: 400">Hello, ${name}</h3>
@@ -52,7 +54,7 @@ router.post('/', async (req, res) => {
                      <main>
                         <p style="margin-bottom: 30px; text-align: center">Click the button below to confirm the your account</p>
                         <a style="display: block; padding: 15px; background: dodgerblue; color: #fff; text-decoration: none; text-align: center; border-radius: 5px"
-                           href="http://localhost:3000/verify/${token}" target="_blank">Verify your account</a>
+                           href="http://192.168.1.107:3000/verify/${token}" target="_blank">Verify your account</a>
                      </main>
                   </div>
                </div>`

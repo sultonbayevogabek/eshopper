@@ -8,7 +8,7 @@
             <div class="col-sm-4 col-sm-offset-1">
                 <div class="login-form">
                     <h2>Login to your account</h2>
-                    <% if (error.includes('at least 3') || error.includes('should be') || error.includes('at least 5') || error.includes('in use')) { %>
+                    <% if (error.includes('not valid') || error.includes('less than 5') || error.includes('not found') || error.includes('incorrect')) { %>
                         <div class="alert alert-warning text-center"><%= error %></div>
                     <% } %>
                     <form action="/login" method="post">

@@ -1,0 +1,78 @@
+<% var user, error %>
+
+<%- include('partials/header') %>
+<%- include('partials/page_header') %>
+
+<section id="cart_items">
+    <div class="container">
+        <div class="breadcrumbs">
+            <ol class="breadcrumb">
+                <li><a href="/">Home</a></li>
+                <li class="active">
+                    Account Edit
+                </li>
+            </ol>
+        </div>
+        <div class="page-content page-container" id="page-content">
+            <div class="padding">
+                <div class="row container d-flex justify-content-center">
+                    <div class="col-xl-6 col-md-12" style="padding: 0">
+                        <div class="card user-card-full">
+                            <div class="row m-l-0 m-r-0">
+                                <div class="col-sm-12">
+                                    <div class="card-block">
+                                        <h6 class="m-b-20 p-b-5 b-b-default f-w-600">User information</h6>
+                                        <form action="/account/edited" method="post">
+                                            <% if (error) { %>
+                                                <div class="alert alert-warning text-center"><%= error.toUpperCase() %></div>
+                                            <% } %>
+                                            <div class="row">
+                                                <div class="col-sm-6 m-b-20">
+                                                    <p class="m-b-10 f-w-600">Name</p>
+                                                    <input class="form-control" type="text" value="<%= user.name %>"
+                                                           name="name" required minlength="5">
+                                                </div>
+                                                <div class="col-sm-6 m-b-20">
+                                                    <p class="m-b-10 f-w-600">Phone</p>
+                                                    <input class="form-control" type="number"
+                                                           value="<%= user.phone ? user.phone : '-' %>"
+                                                           name="phone" required min="998600000000" max="998999999999">
+                                                </div>
+                                                <div class="col-sm-6 m-b-20">
+                                                    <p class="m-b-10 f-w-600">Email</p>
+                                                    <input class="form-control" type="text" value="<%= user.email %>"
+                                                           name="email" required>
+                                                </div>
+                                                <div class="col-sm-6 m-b-20">
+                                                    <p class="m-b-10 f-w-600">Address</p>
+                                                    <input class="form-control" type="text"
+                                                           value="<%= user.address ? user.address : '-' %>"
+                                                           name="address" required minlength="5">
+                                                </div>
+                                                <div class="col-sm-6 m-b-20">
+                                                    <p class="m-b-10 f-w-600">Telegram</p>
+                                                    <input class="form-control" type="text"
+                                                           value="<%= user.telegram ? user.telegram : '-' %>"
+                                                           name="telegram" required minlength="4">
+                                                </div>
+                                            </div>
+                                            <input type="hidden" name="id" value=<%= user._id %>>
+                                            <button class="btn btn-success mt-3" style="margin-right: 5px">
+                                                Save changes
+                                            </button>
+                                            <a href="/account" class="btn btn-danger">Cancel</a>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<%- include('partials/page_footer') %>
+<script src="/js/profile.js"></script>
+<%- include('partials/footer') %>

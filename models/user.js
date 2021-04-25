@@ -15,6 +15,23 @@ const userSchema = new Schema({
       type: String,
       required: true
    },
+   img: {
+      type: String,
+      default: 'https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/default-avatar.png'
+   },
+   phone: {
+      type: Number,
+      min: 998600000000,
+      max: 998999999999
+   },
+   telegram: {
+      type: String,
+      minlength: 3
+   },
+   address: {
+      type: String,
+      minlength: 5
+   },
    cart: {
       products: [
          {

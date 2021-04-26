@@ -1,0 +1,18 @@
+<%- include('partials/header') %>
+
+<section class="admin-login">
+    <div class="container">
+        <div class="row" style="display: flex; justify-content: center">
+            <div class="col-sm-6 text-center">
+                <h2>Login as admin</h2>
+                <form action="/admin" method="post">
+                    <input class="form-control m-b-20" type="text" name="login" placeholder="Login">
+                    <input class="form-control m-b-20" type="password" name="password" placeholder="Password">
+                    <button class="btn btn-success" style="width: 100%">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<%- include('partials/footer') %>

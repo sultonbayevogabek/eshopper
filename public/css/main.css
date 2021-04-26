@@ -2599,3 +2599,11 @@ h6 {
 a {
    cursor: pointer;
 }
+
+.admin-login {
+   height: 100vh;
+   background-color: #FE980F;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}

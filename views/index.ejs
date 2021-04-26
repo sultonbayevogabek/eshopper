@@ -59,5 +59,60 @@
     </div>
 </section>
 
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 padding-right">
+                <div class="features_items"><!--features_items-->
+                    <h2 class="title text-center">Products</h2>
+                    <% for (let {id, title, price, img} of products) { %>
+                        <div class="col-sm-4">
+                            <div class="product-image-wrapper">
+                                <div class="single-products">
+                                    <div class="productinfo text-center">
+                                        <img src="<%= img %>" alt=""/>
+                                        <h2>$<%= price %></h2>
+                                        <p><%= title %></p>
+                                        <a class="btn btn-default add-to-cart" id="<%= id %>">
+                                            <i class="fa fa-shopping-cart"></i>
+                                            Add to cart
+                                        </a>
+                                    </div>
+                                    <div class="product-overlay">
+                                        <div class="overlay-content">
+                                            <h2>$<%= price %></h2>
+                                            <p><%= title %></p>
+                                            <a class="btn btn-default add-to-cart" id="<%= id %>">
+                                                <i class="fa fa-shopping-cart"></i>
+                                                Add to cart
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="choose">
+                                    <ul class="nav nav-pills nav-justified">
+                                        <li>
+                                            <a class="add-to-wishlist" id="<%= id %>">
+                                                <i class="fa fa-plus-square"></i>
+                                                Add to wishlist
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="add-comment" id="<%= id %>">
+                                                <i class="fa fa-comment"></i>
+                                                Add comment
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <%- include('partials/page_footer') %>
 <%- include('partials/footer') %>

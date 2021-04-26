@@ -49,10 +49,59 @@ if (addToCardButtons) {
                body: JSON.stringify({id: productId})
             })
             response = await response.json()
-            console.log(response)
+            if (response.ok) {
+               alert('Product added to card')
+            }
          } catch (e) {
             console.log(e)
          }
       })
    })
 }
+
+const removeFromCartBtns = document.querySelectorAll('[data-remove-id]'),
+   incrementBtns = document.querySelectorAll('[data-increment-id]'),
+   decrementBtns = document.querySelectorAll('[data-decrement-id]')
+
+if (removeFromCartBtns) {
+   removeFromCartBtns.forEach(btn => {
+      btn.addEventListener('click', async e => {
+         const id = e.target.getAttribute('data-remove-id')
+         let response = await fetch('/cart/remove/'+id, {
+            method: "DELETE"
+         })
+         response = await response.json()
+         if (response.ok) {
+            window.location.reload()
+         }
+      })
+   })
+}
+
+function incrementDecrement(elements) {
+   if (elements) {
+      elements.forEach(btn => {
+         btn.addEventListener('click', async e => {
+            let url = 'increment', selector = 'data-increment-id'
+            if (elements === decrementBtns) {
+               url = 'decrement'
+               selector = 'data-decrement-id'
+            }
+            const id = e.target.getAttribute(selector)
+            let response = await fetch('/cart/' + url, {
+               headers: {
+                  'Content-type': 'application/json; charset=utf-8'
+               },
+               method: "POST",
+               body: JSON.stringify({ id: id })
+            })
+            response = await response.json()
+            if (response.ok) {
+               window.location.reload()
+            }
+         })
+      })
+   }
+}
+incrementDecrement(incrementBtns)
+incrementDecrement(decrementBtns)

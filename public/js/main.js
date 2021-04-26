@@ -66,7 +66,7 @@ const removeFromCartBtns = document.querySelectorAll('[data-remove-id]'),
 if (removeFromCartBtns) {
    removeFromCartBtns.forEach(btn => {
       btn.addEventListener('click', async e => {
-         const id = e.target.getAttribute('data-remove-id')
+         const id = e.currentTarget.getAttribute('data-remove-id')
          let response = await fetch('/cart/remove/'+id, {
             method: "DELETE"
          })

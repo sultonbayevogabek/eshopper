@@ -54,7 +54,7 @@ router.post('/', dontEnterIfUser, async (req, res) => {
                      <main>
                         <p style="margin-bottom: 30px; text-align: center">Click the button below to confirm the your account</p>
                         <a style="display: block; padding: 15px; background: dodgerblue; color: #fff; text-decoration: none; text-align: center; border-radius: 5px"
-                           href="http://192.168.1.107:3000/verify/${token}" target="_blank">Verify your account</a>
+                           href="https://eshopper-uz.herokuapp.com/verify/${token}" target="_blank">Verify your account</a>
                      </main>
                   </div>
                </div>`
